@@ -1,19 +1,14 @@
 <?php
-
 $text = $_REQUEST['text'];
-
 $level = getLevel($text);
-
 if($level == 0){
   //Breaking news, Football, Athletics, Gossip
-
-  $reply = "Welcome to Sasa News:".PHP_EOL."1.Breaking News".PHP_EOL."2.Football".
-  PHP_EOL."3.Athletics".PHP_EOL."4.Gossip";
-
+  $reply = "Safaricom:".PHP_EOL."1. Safaricom+".PHP_EOL."2.M-PESA";
   echo "CON ".$reply;
   exit;
 }else{
-  $news = ['Breaking','Football','Athletics'.'Gossip'];
+  //get the input form the previous step
+  $news = ['Breaking','Football','Athletics','Gossip'];
   if((trim($text) < 5)&&(trim($text)>0)){
     $reply = "You've subscribed to".$news[$text-1]."news";
   }elseif($text == 2){
@@ -21,33 +16,21 @@ if($level == 0){
     //$reply = "The drug is invalid";
   }
   echo "END ".$reply;
-
 }
-
-
 //User dials the code and is requested to enter the drug verification
 //code
-
 //step 2 the code is compared to valid code and if valid gets valid Message
-
 //end at this
-
-
-
 function getLevel($text){
   //check if text is empty
   if(empty($text)){
     $level = 0;
   }else{
     $exploded_text = explode('*',$text);
-
+    print_r($exploded_text);
+    exit;
     $level = count($exploded_text);
   }
-
   return $level;
 }
-
-
-
-
  ?>
