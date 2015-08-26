@@ -1,6 +1,6 @@
 <?php
 
-$text = "Leonard*2355";
+$text = "frankie*2355";
 
 $level = getLevel($text);
 
