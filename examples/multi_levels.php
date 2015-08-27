@@ -1,6 +1,7 @@
 <?php
 $text = $_REQUEST['text'];
 $input = getInput($text);
+//switch case to loop within the user selected options
 switch ($input['level']) {
   case 0:
      $reply = getMainMenu();
